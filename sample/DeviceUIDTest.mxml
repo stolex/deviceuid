@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" applicationDPI="160" creationComplete="onComplete(event)">
+	<fx:Script>
+		<![CDATA[
+			import com.stojce.ane.deviceuid.DeviceUID;
+			
+			import mx.events.FlexEvent;
+			
+			protected function onComplete(event:FlexEvent):void {
+				var c_dev:DeviceUID = new DeviceUID();
+				
+				var c_imei:String = c_dev.getIMEI();
+				var c_imsi:String = c_dev.getIMSI();
+				var c_build:String = c_dev.getBuildID();
+				
+				txt.text = "imei:"+c_imei + "\n"
+							+"imsi:"+c_imsi + "\n"
+							+"build:"+c_build + "\n";
+				
+			}
+			
+		]]>
+	</fx:Script>
+	
+	<s:TextArea id="txt" width="100%" height="100%" />
+</s:Application>
